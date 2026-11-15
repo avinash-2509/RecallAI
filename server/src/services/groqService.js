@@ -9,24 +9,41 @@ export async function generateWithGroq(request, { signal } = {}) {
   }
 
   const client = new Groq({ apiKey: process.env.GROQ_API_KEY });
+  const requestedItems = request.count * (request.mode === 'both' ? 2 : 1);
+  const maxCompletionTokens = Math.min(7000, 1000 + (requestedItems * 160));
+  const baseRequest = {
+    model: process.env.GROQ_MODEL || 'qwen/qwen3.8-27b',
+    messages: [
+      { role: 'system', content: systemInstruction },
+      { role: 'user', content: buildPrompt(request) }
+    ],
+    temperature: 0.3,
+    reasoning_effort: 'none',
+    max_completion_tokens: maxCompletionTokens
+  };
+
   try {
-    const completion = await client.chat.completions.create({
-      model: process.env.GROQ_MODEL || 'qwen/qwen3.8-27b',
-      messages: [
-        { role: 'system', content: systemInstruction },
-        { role: 'user', content: buildPrompt(request) }
-      ],
-      temperature: 0.3,
-      reasoning_effort: 'none',
-      response_format: {
-        type: 'json_schema',
-        json_schema: {
-          name: 'recall_ai_study_set',
-          strict: true,
-          schema: studySetJsonSchema
+    let completion;
+    try {
+      completion = await client.chat.completions.create({
+        ...baseRequest,
+        response_format: {
+          type: 'json_schema',
+          json_schema: {
+            name: 'recall_ai_study_set',
+            strict: true,
+            schema: studySetJsonSchema
+          }
         }
-      }
-    }, { signal });
+      }, { signal });
+    } catch (error) {
+      const status = error?.status ?? error?.statusCode;
+      if (status !== 400) throw error;
+      completion = await client.chat.completions.create({
+        ...baseRequest,
+        response_format: { type: 'json_object' }
+      }, { signal });
+    }
 
     const content = completion.choices?.[0]?.message?.content;
     return parseAndNormalizeStudySet(content, request);
