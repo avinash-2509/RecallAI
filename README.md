@@ -142,6 +142,31 @@ server/
     index.js
 ```
 
+## AI-Assisted Development
+
+AI-assisted coding tools were used as part of the development workflow to help explore implementation approaches, scaffold portions of the project, troubleshoot integration issues, and review edge cases around structured output and error handling. The generated suggestions were reviewed and adapted to fit the project architecture, and the final behavior was verified through automated tests, production builds, and manual API checks.
+
+The main areas where AI assistance was useful were:
+
+- Planning the frontend and backend component structure
+- Reviewing failure scenarios for AI-generated JSON
+- Debugging provider configuration and request timeouts
+- Refining the responsive interface and accessibility states
+- Improving tests and project documentation
+
+## Time Spent
+
+The project was completed over approximately one focused working day (around 8 hours).
+
+| Area | Approximate time |
+| --- | ---: |
+| Planning and project setup | 1 hour |
+| Frontend implementation and interaction design | 3 hours |
+| AI provider integration and structured validation | 1.5 hours |
+| Reliability, error handling, and persistence | 1 hour |
+| Testing, visual refinement, and documentation | 1.5 hours |
+| **Total** | **8 hours** |
+
 ## Known Limitations
 
 - AI-generated educational content can contain factual errors and should be checked against trusted sources.
