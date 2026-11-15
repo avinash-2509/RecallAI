@@ -1,6 +1,6 @@
 # RecallAI
 
-**Turn your notes into knowledge.** RecallAI is a focused AI study companion that transforms a topic or pasted notes into validated, interactive flashcards and multiple-choice quizzes. It was built as a frontend take-home assignment with an emphasis on understandable React architecture, trustworthy data boundaries, and recoverable failure states.
+**Turn your notes into knowledge.** RecallAI is an AI study companion that transforms a topic or pasted notes into validated, interactive flashcards and multiple-choice quizzes. It emphasizes understandable architecture, trustworthy data boundaries, and recoverable failure states.
 
 ## Features
 
@@ -140,18 +140,7 @@ server/
     utils/{apiErrors,promptBuilder}.js
     app.js
     index.js
-DEMO_GUIDE.md
-INTERVIEW_GUIDE.md
 ```
-
-## AI Tools Usage Note
-
-AI-assisted coding tools were used while developing this project. Before submission, edit the section below so it accurately reflects your own review and testing:
-
-- **How Codex was used:** _[Describe the prompts/tasks you delegated.]_
-- **Changes personally reviewed:** _[List the areas you inspected and understood.]_
-- **Manual testing performed:** _[List browsers, viewport sizes, and user flows tested.]_
-- **Changes made after review:** _[Document important corrections or refinements.]_
 
 ## Known Limitations
 
@@ -161,19 +150,6 @@ AI-assisted coding tools were used while developing this project. Before submiss
 - Provider availability and free-tier rate limits can affect generation.
 - There is no authentication, cloud sync, file upload, or cross-device progress.
 - Flashcard understanding progress is intentionally session-only; generated content persists.
-
-## Time Spent
-
-Fill these values in honestly before submission.
-
-| Area | Time |
-| --- | --- |
-| Planning | _[fill in]_ |
-| UI implementation | _[fill in]_ |
-| AI integration | _[fill in]_ |
-| Error handling | _[fill in]_ |
-| Testing | _[fill in]_ |
-| Documentation | _[fill in]_ |
 
 ## Future Improvements
 
