@@ -22,7 +22,7 @@ export function createApp() {
     }));
     next();
   });
-  app.use(cors({ origin: process.env.CLIENT_ORIGIN || 'http://localhost:5173' }));
+  app.use(cors());
   app.use(express.json({ limit: '32kb' }));
   app.use('/api', rateLimit({ windowMs: 15 * 60 * 1000, limit: 30, standardHeaders: 'draft-8', legacyHeaders: false }));
   app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));

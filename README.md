@@ -61,7 +61,6 @@ AI_PROVIDER=groq
 GROQ_API_KEY=your_groq_api_key_here
 GROQ_MODEL=qwen/qwen3.8-27b
 PORT=5000
-CLIENT_ORIGIN=http://localhost:5173
 AI_TIMEOUT_MS=20000
 ```
 
