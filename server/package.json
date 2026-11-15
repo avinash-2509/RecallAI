@@ -1,0 +1,22 @@
+{
+  "name": "recall-ai-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@google/genai": "^1.30.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "groq-sdk": "^1.6.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "vitest": "^4.0.9"
+  }
+}
